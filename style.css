@@ -1,0 +1,63 @@
+body {
+    background-color: rgb(236, 181, 98);
+}
+.T1 {
+    position: absolute;
+    z-index: 3;
+    left: 90px;
+    top: 20px;
+    font-size: 50px;
+    background-color: rgb(190, 144, 84);
+    padding: 15px 15px;
+    border-radius: 15px;
+}
+.P1 {
+    position: absolute;
+    z-index: 3;
+    right: 270px;
+    top: 20px;
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+}
+.P2 {
+    position: absolute;
+    z-index: 3;
+    right: 130px;
+    top: 20px;
+    font-size: 25px;
+    color: black;
+}
+.P3 {
+    position: absolute;
+    z-index: 3;
+    right: 283px;
+    top: 100px; 
+    font-size: 25px;
+}
+.P4 {
+    position: absolute;
+    z-index: 3;
+    right: 70px;
+    top: 100px;
+    font-size: 25px;
+}
+.contatos {
+    position: absolute;
+    z-index: 2;
+    background-color: rgb(190, 144, 84);
+    width: 400px;
+    height: 150px;
+    right: 45px;
+    top: 20px;
+    border-radius: 15px;
+}
+.faixa {
+    background-color: rgb(160, 97, 15);
+    width: 1280px;
+    height: 200px;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+}
