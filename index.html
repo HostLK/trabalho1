@@ -1,65 +1,66 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rusbé restaurante</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
   </head>
   <body>
-    <div class="faixa">
+
+    <!-- CABEÇALHO-->
+    <header class="faixa">
       <h1 class="T1">RESUTAURANTE<br />RUSBÉ</h1>
 
       <div class="links">
-        <div class="P1">CARDÁPIO</div>
-        <div class="P2">RESERVAS</div>
-        <div class="P3">SOBRE</div>
-        <div class="P4">CONTATOS</div>
+        <a class="P1" href="#cardapio">Cardápio</a>
+        <a class="P2" href="#reservas">Reservas</a>
+        <a class="P3" href="#sobre">Sobre</a>
+        <a class="P4" href="#contatos">Contatos</a>
       </div>
-    </div>
+    </header>
     <h2 class="h2centro">MAIS PEDIDOS</h2>
-    <div class="main">
-      <div class="principaisp1">Baião de dois</div>
-      <div class="principaisp2">Tacacá</div>
-      <div class="principaisp3">Fígado com Jiló</div>
-      <div class="principaisp4">Camarão</div>
-    </div>
+    <section class="main">
+      <div class="principaisp1">Baião de dois
+        <img src="/assets/baiao-de-dois.jpg" alt="Baião de dois" />
+      </div>
+      <div class="principaisp2">Tacacá
+        <img src="assets/tacaca-paraense.jpeg" alt="Tacacá" />
+      </div>
+      <div class="principaisp3">Fígado com Jiló
+        <img src="assets/figado-jilo.jpg" alt="Fígado com Jiló" />
+      </div>
+      <div class="principaisp4">Camarão
+        <img src="assets/camarao-frito.jpg" alt="Camarão" />
+      </div>
+    </section>
     <h2 class="h2centro">CARDÁPIO</h2>
-    <div class="pratos">
-      <div>Bauru</div>
-      <div>KAOL</div>
-      <div>Arroz carreteiros</div>
-      <div>Bobó de Camarão</div>
-      <div>Moqueca</div>
-      <div>Barreado</div>
-      <div>Feijoada Completa</div>
-      <div>Empadão Goiano</div>
-      <div>Arroz com Pequi</div>
-    </div>
+    <section  id = "cardapio"class="pratos">
+      <p>Bauru</p>
+      <p>KAOL</p>
+      <p>Arroz carreteiros</p>
+      <p>Bobó de Camarão</p>
+      <p>Moqueca</p>
+      <p>Barreado</p>
+      <p>Feijoada Completa</p>
+      <p>Empadão Goiano</p>
+      <p>Arroz com Pequi</p>
+    </section>
     <h2 class="reserva">RESERVAS</h2>
-    <div class="formulariosR">
+    <section class="formulariosR">
       <form action="/enviar-dados" method="post">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required />
+        <input type="text" placeholder="Ex: Lucas Vasconcelos" id="nome" name="nome" required />
         <br /><br />
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" placeholder="Ex: 1s2wF@email.com" id="email" name="email" required />
         <br /><br />
         <button type="submit">Enviar</button>
       </form>
-    </div>
-    <h2 class="contato">CONTATOS</h2>
-    <div class="formulariosC">
-      <form action="/enviar-dados" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required />
-        <br /><br />
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required />
-        <br /><br />
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
+    </section>
+
   </body>
+
+      <script src="scripts.js"></script>
+
 </html>
