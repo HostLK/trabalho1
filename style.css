@@ -69,22 +69,23 @@ body {
     grid-template-columns:repeat(3, 1fr);
     margin-top: 50px;
 }
-.formularios {
-    margin-left: 300px;
+.formulariosR {
+    display: flex;
+    padding: 10px 300px;
 }
 .formulariosC {
     text-align: right;
-    margin-right: 300px;
+    padding: 10px 300px;
 }
-.formularioR {
-    margin-left: 300px;
-    display: flex;
+.reserva {
     margin-top: 50px;
+    display: flex;
+    padding: 20px 300px;
 }
-.formularioC {
+.contato {
     text-align: right;
-    margin-right: 300px;
-    margin-top: 200px;
+    margin-top: 150px;
+    padding: 20px 300px;
 }
 button {
     margin-left: 170px;
