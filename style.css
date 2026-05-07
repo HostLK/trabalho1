@@ -65,10 +65,30 @@ main{
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-top: 20px;
-  gap: 170px;
+  flex-wrap: wrap; /* Adicionado para responsividade */
+  gap: 50px; /* Reduzido o gap para os itens se alinharem melhor */
   margin-top: 50px;
   z-index: 2;
+}
+
+/* Alinhamento e tamanhos de título e valor do prato nas seções */
+.mais-pedidos div,
+.pratos div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Espaçamento uniforme entre nome, imagem e preço */
+}
+
+/* Tamanho igual para o nome do prato (h3) e o valor */
+.mais-pedidos h3,
+.pratos h3,
+.valor-prato {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
 }
 
 img {
@@ -93,21 +113,105 @@ img {
   grid-template-columns: repeat(3, 0.4fr);
   margin-top: 50px;
 }
+/* Formulário de Reservas - alinhado com a paleta da página */
 .formulariosR {
   display: flex;
-  padding: 10px 300px;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-.reserva {
-  margin-top: 50px;
+.form-reserva {
+  background-color: #6d6a50; /* Mesma paleta do cabeçalho */
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
-  padding: 20px 300px;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre os campos */
 }
 
-button {
-  margin-left: 170px;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
 }
 
+.form-reserva label {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-reserva input {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.btn-enviar {
+  margin-top: 15px;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #c1c6a9; /* Paleta do fundo principal */
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #a4aa87;
+}
+
+/* Localização - Mapa 100% de largura */
+.localizacao {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.localizacao iframe {
+  display: block;
+}
+
+/* Seção de Contatos alinhada com as paletas */
+.contatos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #6d6a50;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.contato-info {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contato-info a {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px solid #c1c6a9;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.contato-info a:hover {
+  background-color: #c1c6a9;
+  color: #000;
+}
 
 .rodape{
   background: #6d6a50;
@@ -116,4 +220,97 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
+
+/* =========================================
+   RESPONSIVIDADE (Dispositivos Móveis)
+   ========================================= */
+@media (max-width: 768px) {
+  /* Cabeçalho */
+  .faixa {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .T1 {
+    font-size: 40px;
+  }
+  
+  .links {
+    font-size: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  /* Textos e Títulos */
+  .h2centro {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+
+  .sobre-nos p {
+    font-size: 16px;
+    width: 95%;
+  }
+
+  /* Seções de Pratos e Mais Pedidos */
+  .mais-pedidos {
+    gap: 40px;
+  }
+
+  .pratos {
+    grid-template-columns: 1fr; /* 1 coluna no mobile */
+    gap: 50px;
+  }
+
+  /* Ajuste de imagens e textos nos pratos */
+  .mais-pedidos img,
+  .pratos img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  /* Formulário de reservas */
+  .formulariosR {
+    padding: 20px 15px;
+  }
+
+  .form-reserva {
+    padding: 20px;
+  }
+
+  /* Mapa */
+  .localizacao iframe {
+    height: 300px;
+  }
+
+  /* Contatos */
+  .contatos {
+    padding: 30px 15px;
+  }
+
+  .contato-info {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .contato-info a {
+    font-size: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  /* Rodapé */
+  .rodape {
+    padding: 30px 20px;
+    font-size: 14px;
+  }
+}
+
