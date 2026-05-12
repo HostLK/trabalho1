@@ -1,11 +1,11 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -20,6 +20,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 150px;
+  top: 0;
 }
 
 a {
@@ -27,7 +31,7 @@ a {
   color: #000000;
 }
 
-main{
+main {
   background: #c1c6a9;
 }
 
@@ -42,6 +46,7 @@ main{
     "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
 }
+
 .links {
   display: flex;
   gap: 10px;
@@ -50,27 +55,35 @@ main{
   gap: 20px;
 }
 
+.sobre-nos {
+  margin-top: 200px;
+  scroll-margin-top: 180px;
+}
+
 .sobre-nos p {
   font-size: 20px;
   text-align: justify;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  
+
   margin-top: 10px;
   padding: 10px;
   width: 90%;
-  
-  
-  
+
+
+
 }
+
 /* textos principais */
 .mais-pedidos {
   display: flex;
   justify-content: center;
   text-align: center;
-  flex-wrap: wrap; /* Adicionado para responsividade */
-  gap: 50px; /* Reduzido o gap para os itens se alinharem melhor */
+  flex-wrap: wrap;
+  /* Adicionado para responsividade */
+  gap: 50px;
+  /* Reduzido o gap para os itens se alinharem melhor */
   margin-top: 50px;
   z-index: 2;
 }
@@ -82,7 +95,8 @@ main{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px; /* Espaçamento uniforme entre nome, imagem e preço */
+  gap: 15px;
+  /* Espaçamento uniforme entre nome, imagem e preço */
 }
 
 /* Tamanho igual para o nome do prato (h3) e o valor */
@@ -104,11 +118,13 @@ img {
   box-shadow: 0px 0px 10px #000000;
   cursor: pointer;
 }
+
 .h2centro {
   font-size: 40px;
   text-align: center;
   margin-top: 50px;
 }
+
 .pratos {
   justify-content: center;
   text-align: center;
@@ -117,6 +133,7 @@ img {
   grid-template-columns: repeat(3, 0.4fr);
   margin-top: 50px;
 }
+
 /* Formulário de Reservas - alinhado com a paleta da página */
 .formulariosR {
   display: flex;
@@ -125,7 +142,8 @@ img {
 }
 
 .form-reserva {
-  background-color: #6d6a50; /* Mesma paleta do cabeçalho */
+  background-color: #6d6a50;
+  /* Mesma paleta do cabeçalho */
   padding: 30px;
   border-radius: 15px;
   width: 100%;
@@ -133,7 +151,8 @@ img {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espaço entre os campos */
+  gap: 15px;
+  /* Espaço entre os campos */
 }
 
 .form-group {
@@ -162,7 +181,8 @@ img {
   padding: 12px;
   font-size: 18px;
   font-weight: bold;
-  background-color: #c1c6a9; /* Paleta do fundo principal */
+  background-color: #c1c6a9;
+  /* Paleta do fundo principal */
   color: #000;
   border: none;
   border-radius: 5px;
@@ -180,6 +200,7 @@ img {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
 .localizacao iframe {
   display: block;
 }
@@ -217,7 +238,7 @@ img {
   color: #000;
 }
 
-.rodape{
+.rodape {
   background: #6d6a50;
   padding: 60px 40px;
   font-size: 18px;
@@ -231,6 +252,7 @@ img {
    RESPONSIVIDADE (Dispositivos Móveis)
    ========================================= */
 @media (max-width: 768px) {
+
   /* Cabeçalho */
   .faixa {
     flex-direction: column;
@@ -238,11 +260,11 @@ img {
     gap: 20px;
     text-align: center;
   }
-  
+
   .T1 {
     font-size: 40px;
   }
-  
+
   .links {
     font-size: 20px;
     flex-wrap: wrap;
@@ -267,7 +289,8 @@ img {
   }
 
   .pratos {
-    grid-template-columns: 1fr; /* 1 coluna no mobile */
+    grid-template-columns: 1fr;
+    /* 1 coluna no mobile */
     gap: 50px;
   }
 
@@ -317,4 +340,3 @@ img {
     font-size: 14px;
   }
 }
-
