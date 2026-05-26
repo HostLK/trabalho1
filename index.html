@@ -127,7 +127,7 @@
     <!--  RESERVAS-->
     <h2 id="reservas" class="h2centro">RESERVAS</h2>
     <section class="formulariosR">
-      <form action="/enviar-dados" method="post" class="form-reserva">
+      <form action="/enviar-dados" method="post" class="form-reserva" onsubmit="enviarFormulario(event)">
         <div class="form-group">
           <label for="nome">Nome:</label>
           <input type="text" placeholder="Ex: Lucas Vasconcelos" id="nome" name="nome" required />
@@ -150,6 +150,7 @@
         </div>
         <button type="submit" class="btn-enviar">Reservar Mesa</button>
       </form>
+
     </section>
 
     <!--  LOCALIZAÇÃO -->
@@ -176,8 +177,9 @@
       <p>© 2026 Rusbé Restaurante. Todos os direitos reservados.</p>
     </footer>
   </main>
-</body>
 
 <script src="scripts.js"></script>
+
+</body>
 
 </html>
