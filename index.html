@@ -11,6 +11,7 @@
     <header class="faixa">
       <h1 class="T1">RESTAURANTE<br />RUSBÉ</h1>
 
+<<<<<<< Updated upstream
       <div class="links">
         <a href="#cardapio">Cardápio</a>
         <a href="#reservas">Reservas</a>
@@ -72,6 +73,198 @@
       </form>
     </section>
   </body>
+=======
+        <div class="links">
+          <a href="#cardapio">Cardápio</a>
+          <a href="#reservas">Reservas</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#contatos">Contatos</a>
+          <a href="#localizacao">Localização</a>
+        </div>
+      </header>
 
-  <script src="scripts.js"></script>
+      <!--  SOBRE NÓS-->
+      <section id="sobre" class="sobre-nos">
+        <h2 class="h2centro">SOBRE NÓS</h2>
+
+        <p>
+          O Rusbé nasceu de um sonho simples e verdadeiro: reunir pessoas à mesa
+          com a comida que aquece a alma. Fundado com muito carinho e dedicação,
+          nosso restaurante é um pedacinho do Brasil em cada prato, feito com
+          ingredientes frescos, temperos de verdade e todo o amor que a
+          culinária brasileira merece. Aqui, cada refeição é uma experiência.
+          Não apenas pelo sabor, mas pelo cuidado com que cada detalhe é
+          preparado: do atendimento caloroso que recebe você na porta até o
+          último garfo. Acreditamos que uma boa mesa vai muito além da comida —
+          é sobre momentos, memórias e pessoas. No Rusbé, você não é apenas um
+          cliente. Você é parte da nossa família.
+        </p>
+      </section>
+
+      <!--  MAIS PEDIDOS-->
+      <h2 id="cardapio" class="h2centro">MAIS PEDIDOS</h2>
+      <section class="mais-pedidos">
+        <div class="principaisp1">
+          <h3>Baião de dois</h3>
+          <img src="assets/baiao-de-dois.jpg" alt="Baião de dois" />
+          <p class="valor-prato">R$ 45,00</p>
+        </div>
+        <div class="principaisp2">
+          <h3>Tacacá</h3>
+          <img src="assets/tacaca-paraense.jpeg" alt="Tacacá" />
+          <p class="valor-prato">R$ 35,00</p>
+        </div>
+
+        <div class="principaisp3">
+          <h3>Fígado com Jiló</h3>
+          <img src="assets/figado-jilo.jpg" alt="Fígado com Jiló" />
+          <p class="valor-prato">R$ 40,00</p>
+        </div>
+
+        <div class="principaisp4">
+          <h3>Camarão Frito</h3>
+          <img src="assets/camarao-frito.jpg" alt="Camarão" />
+          <p class="valor-prato">R$ 55,00</p>
+        </div>
+      </section>
+
+      <!--  CARDÁPIO-->
+      <h2 class="h2centro">CARDÁPIO</h2>
+
+      <section class="pratos">
+        <div>
+          <h3>Bauru</h3>
+          <img src="assets/bauru-mortadela.jpg" alt="Bauru" />
+          <p class="valor-prato">R$ 25,00</p>
+        </div>
+
+        <div>
+          <h3>KAOL</h3>
+          <img src="assets/kaol.jpg" alt="Kaol" />
+          <p class="valor-prato">R$ 30,00</p>
+        </div>
+
+        <div>
+          <h3>Arroz carreteiros</h3>
+          <img src="assets/arroz-carreteiro.jpg" alt="Arroz carreteiro" />
+          <p class="valor-prato">R$ 35,00</p>
+        </div>
+
+        <div>
+          <h3>Bobó de Camarão</h3>
+          <img src="assets/bobo-camarao.jpg" alt="Bobó de Camarão" />
+          <p class="valor-prato">R$ 45,00</p>
+        </div>
+
+        <div>
+          <h3>Moqueca de Peixe</h3>
+          <img src="assets/moqueca-peixe.jpg" alt="Moqueca de Peixe" />
+          <p class="valor-prato">R$ 50,00</p>
+        </div>
+
+        <div>
+          <h3>Barreado</h3>
+          <img src="assets/barreado.jpg" alt="Barreado" />
+          <p class="valor-prato">R$ 40,00</p>
+        </div>
+        <div>
+          <h3>Feijoada Completa</h3>
+          <img src="assets/feijoada.jpg" alt="Feijoada Completa" />
+          <p class="valor-prato">R$ 60,00</p>
+        </div>
+        <div>
+          <h3>Empadão Goiano</h3>
+          <img src="assets/empadao-goiano.jpg" alt="Empadão Goiano" />
+          <p class="valor-prato">R$ 30,00</p>
+        </div>
+        <div>
+          <h3>Arroz com Pequi</h3>
+          <img src="assets/arroz-pequi.jpg" alt="Arroz com Pequi" />
+          <p class="valor-prato">R$ 35,00</p>
+        </div>
+      </section>
+
+      <!--  RESERVAS-->
+      <h2 id="reservas" class="h2centro">RESERVAS</h2>
+      <section class="formulariosR">
+        <form
+          action="salvar-dados.php"
+          method="post"
+          class="form-reserva"
+          onsubmit="enviarFormulario(event)">
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input
+              type="text"
+              placeholder="Ex: Lucas Vasconcelos"
+              id="nome"
+              name="nome"
+              required />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input
+              type="email"
+              placeholder="Ex: 1s2wF@email.com"
+              id="email"
+              name="email"
+              required />
+          </div>
+          <div class="form-group">
+            <label for="data">Data da Reserva:</label>
+            <input type="date" id="data" name="data" required />
+          </div>
+          <div class="form-group">
+            <label for="hora">Horário:</label>
+            <input type="time" id="hora" name="hora" required />
+          </div>
+          <div class="form-group">
+            <label for="pessoas">Qtd. de Pessoas:</label>
+            <input
+              type="number"
+              id="pessoas"
+              name="pessoas"
+              min="1"
+              max="20"
+              placeholder="Ex: 2"
+              required />
+          </div>
+          <button type="submit" class="btn-enviar">Reservar Mesa</button>
+        </form>
+      </section>
+
+      <!--  LOCALIZAÇÃO -->
+      <h2 id="localizacao" class="h2centro">LOCALIZAÇÃO</h2>
+      <section class="localizacao">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197587029881!2d-46.6560881!3d-23.5613384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1714658123456!5m2!1spt-BR!2sbr"
+          width="100%"
+          height="400"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </section>
+
+      <!--  CONTATO-->
+      <h2 id="contatos" class="h2centro">CONTATOS</h2>
+      <section class="contatos">
+        <div class="contato-info">
+          <a class="telefone" href="tel:(81) 98765-4321">📞 (81) 98765-4321</a>
+          <a class="email" href="mailto:restauranterusbe@example.com"
+            >✉️ restauranterusbe@example.com</a
+          >
+        </div>
+      </section>
+
+      <!--  RODAPE-->
+      <footer class="rodape">
+        <p>© 2026 Rusbé Restaurante. Todos os direitos reservados.</p>
+      </footer>
+    </main>
+>>>>>>> Stashed changes
+
+    <script src="scripts.js"></script>
+  </body>
 </html>
