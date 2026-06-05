@@ -1,81 +1,69 @@
-      // limpa o formulário
-      document.querySelector("form").reset();
-
-function enviarFormulario(event) {
-    event.preventDefault();
-    const dados = new FormData(event.target);
-
-    fetch('salvar-dados.php', {
-        method: 'POST',
-        body: dados
-    })
-    .then(resposta => resposta.text())
-    .then(() => {
-        alert('✅ Reserva feita com sucesso!');
-        event.target.reset();
-    })
-    .catch(() => {
-        alert('❌ Erro ao enviar!');
-    });
-}
-
 // Defina o limite de vagas por horário (ajuste conforme necessário)
 const LIMITE_POR_HORARIO = 20;
 
-// Função para ler os dados salvos (simula leitura do arquivo reserva.txt)
-function lerReservas() {
-  const dados = localStorage.getItem('reserva') || '[]';
-  return JSON.parse(dados);
-}
+// Verifica quantas pessoas já reservaram na mesma data e horário
+async function verificarDisponibilidade(dataEscolhida, horaEscolhida, qtdPessoas) {
+  try {
+    // Pega todas as reservas que já estão salvas no arquivo, via PHP
+    const resposta = await fetch('ler-reservas.php');
+    const reservas = await resposta.json();
 
-// Função para salvar os dados (simula gravação no arquivo reserva.txt)
-function salvarReserva(dadosReserva) {
-  const reservas = lerReservas();
-  reservas.push(dadosReserva);
-  localStorage.setItem('reserva', JSON.stringify(reservas));
-}
+    // Soma todas as pessoas do mesmo dia e horário
+    const totalOcupado = reservas.reduce((soma, reserva) => {
+      if (reserva.data === dataEscolhida && reserva.hora === horaEscolhida) {
+        return soma + Number(reserva.pessoas);
+      }
+      return soma;
+    }, 0);
 
-// Função que verifica a disponibilidade no horário escolhido
-function verificarDisponibilidade(data, hora, quantidadePessoas) {
-  const reservas = lerReservas();
-  
-  // Soma todas as pessoas que já reservaram para a mesma data e horário
-  const totalNoHorario = reservas.reduce((soma, reserva) => {
-    if (reserva.data === data && reserva.hora === hora) {
-      return soma + Number(reserva.pessoas);
+    // Verifica se vai ultrapassar o limite
+    if (totalOcupado + Number(qtdPessoas) > LIMITE_POR_HORARIO) {
+      return {
+        permitido: false,
+        mensagem: '❌ Não há mais vagas disponíveis para esse horário!'
+      };
     }
-    return soma;
-  }, 0);
 
-  // Verifica se ultrapassa o limite
-  if (totalNoHorario + Number(quantidadePessoas) > LIMITE_POR_HORARIO) {
-    return { disponivel: false, mensagem: '❌ Não há mais vagas disponíveis para esse horário!' };
+    return {
+      permitido: true,
+      mensagem: '✅ Reserva realizada com sucesso!'
+    };
+
+  } catch (erro) {
+    console.error('Erro ao verificar:', erro);
+    return {
+      permitido: false,
+      mensagem: '⚠️ Erro ao consultar o sistema. Tente novamente.'
+    };
   }
-
-  return { disponivel: true, mensagem: '✅ Reserva realizada com sucesso!' };
 }
 
-// Função chamada ao enviar o formulário
-function enviarFormulario(event) {
-  event.preventDefault(); // Impede o envio padrão do formulário
+// Função executada ao clicar em "Reservar Mesa"
+async function enviarFormulario(event) {
+  event.preventDefault(); // Impede recarregar a página
 
-  // Captura os valores dos campos
-  const nome = document.getElementById('nome').value;
-  const email = document.getElementById('email').value;
-  const data = document.getElementById('data').value;
-  const hora = document.getElementById('hora').value;
-  const pessoas = document.getElementById('pessoas').value;
+  // Captura os dados do formulário
+  const dadosReserva = {
+    nome: document.getElementById('nome').value,
+    email: document.getElementById('email').value,
+    data: document.getElementById('data').value,
+    hora: document.getElementById('hora').value,
+    pessoas: document.getElementById('pessoas').value
+  };
 
-  // Verifica disponibilidade
-  const resultado = verificarDisponibilidade(data, hora, pessoas);
+  // Verifica antes de salvar
+  const resultado = await verificarDisponibilidade(dadosReserva.data, dadosReserva.hora, dadosReserva.pessoas);
+  alert(resultado.mensagem); // ✅ AQUI É A ÚNICA MENSAGEM QUE VAI APARECER
 
-  // Exibe mensagem para o usuário
-  alert(resultado.mensagem);
+  // Se tiver vaga, envia para o PHP salvar no arquivo
+  if (resultado.permitido) {
+    await fetch('salvar-reserva.php', { // <- Tirei o alerta daqui
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dadosReserva)
+    });
 
-  // Se estiver disponível, salva a reserva
-  if (resultado.disponivel) {
-    salvarReserva({ nome, email, data, hora, pessoas });
-    // Limpa o formulário após salvar
+    // Limpa o formulário
     document.querySelector('.form-reserva').reset();
   }
 }
